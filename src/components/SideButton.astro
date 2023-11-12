@@ -1,0 +1,11 @@
+---
+interface Props {
+  title: string
+  linkExtension: string
+}
+let { title, linkExtension } = Astro.props
+---
+
+<a href={"/" + linkExtension} class="m-0 p-2 bg-koyu hover:border-b text-center w-full rounded-md font-medium text-lg">
+  {title}
+</a>

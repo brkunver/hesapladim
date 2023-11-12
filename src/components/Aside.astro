@@ -1,0 +1,17 @@
+---
+import SideButton from "./SideButton.astro"
+import logo from "@src/assets/calculator.png"
+import { Image } from "astro:assets"
+---
+
+<aside
+  class="hidden lg:flex lg:flex-col w-80 shadow-md rounded-md
+  bg-koyu px-3 py-2 text-gray-200 border-gray-600 border-2 h-60"
+>
+  <div class="text-center border-b border-gray-100 pt-2 pb-3 rounded-sm mb-4 font-semibold text-xl">
+    <Image src={logo} alt="logo" class="w-6 inline" />
+     Tüm Hesaplamalar
+  </div>
+
+  <SideButton title="Uzunluk Dönüştürücü 📏" linkExtension="uzunluk-donusturucu" />
+</aside>

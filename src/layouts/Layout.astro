@@ -1,51 +1,124 @@
 ---
+import Header from "@components/Header.astro"
+import Aside from "@components/Aside.astro"
 interface Props {
-	title: string;
+  title: string
+  description: string
+  canonicalUrlExtension?: string
 }
 
-const { title } = Astro.props;
+const { title = "Hesapladım", description = "Kolayca hesapla ve dönüştür", canonicalUrlExtension = "/" } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={"https://hesapladi.com.tr/" + canonicalUrlExtension} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen">
+    <Header />
+    <div id="container" class="flex flex-col px-2 pt-2 lg:px-6 min-h-full">
+      <div class="flex flex-col lg:flex-row lg:space-x-12 lg:justify-around ">
+        <Aside />
+        <main class="flex bg-white rounded-md border-black shadow-md flex-col w-full p-2 gap-2 lg:w-2/3">
+          <slot />
+        </main>
+      </div>
+    </div>
+  </body>
 </html>
+
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+  body {
+    font-family: "Roboto";
+    background: #eeeeee;
+  }
+  h1 {
+    @apply text-center font-semibold text-4xl;
+  }
+
+  p,
+  option,
+  label,
+  select {
+    @apply font-medium text-base;
+  }
+
+  ::-webkit-scrollbar {
+    width: 1.5rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #264653;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-width: 0.25rem;
+    border-style: solid;
+    border-radius: 0.375rem;
+    border-color: #264653;
+    background-color: #e9c46a;
+  }
+
+  .koyu-btn {
+    @apply py-2 px-2 w-36 bg-koyu border-0 text-white  font-medium text-base rounded-md text-center;
+    box-shadow: 0 10px #aaa;
+    transition:
+      transform 100ms linear,
+      box-shadow 100ms linear;
+  }
+  .koyu-btn:hover {
+    transform: translateY(1px);
+    box-shadow: 0 9px #aaa;
+  }
+
+  .koyu-btn:active {
+    transform: translateY(5px);
+    box-shadow: 0 5px #888;
+  }
+
+  .acik-btn {
+    @apply py-2 px-2 w-36 bg-acik border-0 text-gray-900 font-medium text-base  rounded-md text-center;
+    box-shadow: 0 10px #333;
+    transition:
+      transform 100ms linear,
+      box-shadow 100ms linear;
+  }
+
+  .acik-btn:hover {
+    transform: translateY(1px);
+    box-shadow: 0 9px #333;
+  }
+
+  .acik-btn:active {
+    transform: translateY(5px);
+    box-shadow: 0 5px #333;
+  }
+
+  input {
+    appearance: none;
+    @apply rounded-md px-2 py-1 border-0 focus:border-koyu text-gray-200;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+  }
+
+  /* WebKit browsers like Safari and Chrome */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 </style>

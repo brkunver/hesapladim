@@ -1,0 +1,106 @@
+---
+import Layout from "@src/layouts/Layout.astro"
+---
+
+<Layout
+  title="Uzunluk dönüştürücü | Hesapladım"
+  description="Metre ve daha fazla uzunluk birimini dönüştür 📏"
+  canonicalUrlExtension="uzunluk-donusturucu"
+>
+  <h1>Uzunluk dönüştürücü 📏</h1>
+  <p class="mx-auto text-center">
+    Aşağıdan dönüştürmek istediğiniz uzunluk birimini ve hedef uzunluk birimini seçiniz.
+  </p>
+  <div class="flex gap-2 justify-center items-center mx-auto">
+    <label for="deger" class="">Kaynak değeri girin :</label>
+    <input type="number" name="deger" id="deger" class="bg-gray-400" />
+  </div>
+  <div class="flex flex-col lg:flex-row mx-auto">
+    <div class="flex mx-auto">
+      <label for="kaynak">Kaynak birim :</label>
+      <select name="kaynak" id="kaynak">
+        <option value="km">Kilometre</option>
+        <option value="hm">Hektrometre</option>
+        <option value="dam">Dekametre</option>
+        <option value="m" selected>Metre</option>
+        <option value="dm">Desimetre</option>
+        <option value="cm">Santimetre</option>
+        <option value="mm">Milimetre</option>
+        <option value="micrometre">Mikrometre</option>
+        <option value="pm">Pikometre</option>
+        <option value="ft">Feet</option>
+        <option value="inch">İnç</option>
+        <option value="yard">Yard</option>
+        <option value="mile">Mil</option>
+        <option value="nautical mile">Deniz mili</option>
+        <option value="ly">Işık yılı</option>
+      </select>
+    </div>
+    <div class="flex mx-auto">
+      <label for="hedef">Hedef birim :</label>
+      <select name="hedef" id="hedef">
+        <option value="km">Kilometre</option>
+        <option value="hm">Hektrometre</option>
+        <option value="dam">Dekametre</option>
+        <option value="m" selected>Metre</option>
+        <option value="dm">Desimetre</option>
+        <option value="cm">Santimetre</option>
+        <option value="mm">Milimetre</option>
+        <option value="micrometre">Mikrometre</option>
+        <option value="pm">Pikometre</option>
+        <option value="ft">Feet</option>
+        <option value="inch">İnç</option>
+        <option value="yard">Yard</option>
+        <option value="mile">Mil</option>
+        <option value="nautical mile">Deniz mili</option>
+        <option value="ly">Işık yılı</option>
+      </select>
+    </div>
+  </div>
+  <div class="flex mx-auto gap-4">
+    <button id="hesapla-button" class="koyu-btn">Hesapla</button>
+    <button id="temizle-button" class="acik-btn">Temizle</button>
+  </div>
+  <div class="flex bg-koyu text-gray-200 px-2 py-2 mt-6 rounded-md lg:w-2/3 mx-auto">
+    <span>Sonuç :</span>
+    <span id="sonuc"></span>
+  </div>
+</Layout>
+
+<script>
+  import convert from "convert"
+
+  let deger = document.getElementById("deger") as HTMLInputElement
+  let kaynak = document.getElementById("kaynak") as HTMLSelectElement
+  let hedef = document.getElementById("hedef") as HTMLSelectElement
+  let hesaplaButton = document.getElementById("hesapla-button") as HTMLButtonElement
+  let temizleButton = document.getElementById("temizle-button") as HTMLButtonElement
+  let sonuc = document.getElementById("sonuc") as HTMLSpanElement
+
+  function donustur() {
+    let source = kaynak.value
+    let target = hedef.value
+
+    return convert(Number(deger.value), source).to(target)
+  }
+
+  function uygula() {
+    let deger = donustur()
+    sonuc.innerText = deger.toString()
+  }
+
+  hesaplaButton.addEventListener("click", uygula)
+  temizleButton.addEventListener("click", () => {
+    deger.value = null
+    sonuc.innerText = ""
+  })
+  deger.addEventListener("input", () => {
+    if (deger) {
+      try {
+        uygula()
+      } catch {
+        return
+      }
+    }
+  })
+</script>
