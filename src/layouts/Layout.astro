@@ -7,7 +7,7 @@ interface Props {
   canonicalUrlExtension?: string
 }
 
-const { title = "Hesapladım", description = "Kolayca hesapla ve dönüştür", canonicalUrlExtension = "/" } = Astro.props
+const { title = "Kolayca Hesapla", description = "Kolayca hesapla ve dönüştür", canonicalUrlExtension = "/" } = Astro.props
 ---
 
 <!doctype html>
@@ -18,7 +18,8 @@ const { title = "Hesapladım", description = "Kolayca hesapla ve dönüştür", 
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="canonical" href={"https://hesapladi.com.tr/" + canonicalUrlExtension} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={"https://kolaycahesapla.com.tr/" + canonicalUrlExtension} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,7 +31,7 @@ const { title = "Hesapladım", description = "Kolayca hesapla ve dönüştür", 
   <body class="min-h-screen">
     <Header />
     <div id="container" class="flex flex-col px-2 pt-2 lg:px-6 min-h-full">
-      <div class="flex flex-col lg:flex-row lg:space-x-12 lg:justify-around ">
+      <div class="flex flex-col lg:flex-row lg:space-x-12 lg:justify-around">
         <Aside />
         <main class="flex bg-white rounded-md border-black shadow-md flex-col w-full p-2 gap-2 lg:w-2/3">
           <slot />
