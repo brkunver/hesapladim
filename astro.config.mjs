@@ -1,13 +1,21 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import sitemap from "@astrojs/sitemap";
+import { defineConfig } from "astro/config"
+import tailwind from "@astrojs/tailwind"
+import sitemap from "@astrojs/sitemap"
 
-import partytown from "@astrojs/partytown";
+import partytown from "@astrojs/partytown"
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://kolaycahesapla.com.tr",
-  integrations: [tailwind(), sitemap({
-    filter: page => page !== "https://stargazers.club/404"
-  }), partytown()]
-});
+  integrations: [
+    tailwind(),
+    sitemap({
+      filter: (page) => page !== "https://stargazers.club/404",
+    }),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
+  ],
+})
