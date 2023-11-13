@@ -61,7 +61,7 @@ import Layout from "@src/layouts/Layout.astro"
     <button id="hesapla-button" class="koyu-btn">Hesapla</button>
     <button id="temizle-button" class="acik-btn">Temizle</button>
   </div>
-  <div class="flex bg-koyu text-gray-200 px-2 py-2 mt-6 rounded-md lg:w-2/3 mx-auto">
+  <div class="flex bg-koyu text-gray-200 px-2 py-2 mt-6 rounded-md min-w-[20rem] lg:w-2/3 mx-auto">
     <span>Sonuç :</span>
     <span id="sonuc"></span>
   </div>
@@ -78,10 +78,7 @@ import Layout from "@src/layouts/Layout.astro"
   let sonuc = document.getElementById("sonuc") as HTMLSpanElement
 
   function donustur() {
-    let source = kaynak.value
-    let target = hedef.value
-
-    return convert(Number(deger.value), source).to(target)
+    return convert(Number(deger.value), kaynak.value).to(hedef.value)
   }
 
   function uygula() {

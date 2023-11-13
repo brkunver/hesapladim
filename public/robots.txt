@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /404
+
 
 Sitemap: https://kolaycahesapla.com.tr/sitemap-index.xml
