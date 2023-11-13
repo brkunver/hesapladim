@@ -8,7 +8,7 @@ export default defineConfig({
   integrations: [
     tailwind(),
     sitemap({
-      filter: (page) => page !== "https://stargazers.club/404",
+      filter: (page) => page !== "https://kolaycahesapla.com.tr/404",
     }),
   ],
 })
