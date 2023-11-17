@@ -1,6 +1,7 @@
 ---
 import Header from "@components/Header.astro"
 import Aside from "@components/Aside.astro"
+import Footer from "@components/Footer.astro"
 
 interface Props {
   title: string
@@ -59,13 +60,16 @@ const {
   </head>
   <body class="min-h-screen">
     <Header />
-    <div id="container" class="flex flex-col px-2 pt-2 lg:px-6 min-h-full">
-      <div class="flex flex-col lg:flex-row lg:space-x-12 lg:justify-around">
-        <Aside />
-        <main class="flex bg-white rounded-md border-black shadow-md flex-col w-full p-2 gap-2 lg:w-2/3">
-          <slot />
-        </main>
+    <div id="main-container" class="flex flex-col justify-between">
+      <div id="container" class="flex flex-col px-2 pt-2 lg:px-6 min-h-full">
+        <div class="flex flex-col lg:flex-row lg:space-x-12 lg:justify-around">
+          <Aside />
+          <main class="flex bg-white rounded-md border-black shadow-md flex-col w-full p-2 gap-4 lg:w-2/3">
+            <slot />
+          </main>
+        </div>
       </div>
+      <Footer />
     </div>
   </body>
 </html>
@@ -139,16 +143,25 @@ const {
 
   input {
     appearance: none;
-    @apply rounded-md px-2 py-1 border-0 focus:border-koyu text-gray-200;
-  }
-  input[type="number"] {
-    -moz-appearance: textfield; /* Firefox */
+    @apply rounded-md px-2 py-1 border-0 focus:border-koyu text-white font-medium text-base bg-gray-700;
   }
 
-  /* WebKit browsers like Safari and Chrome */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+  }
+
+  select {
+    @apply rounded-md border-gray-800 mx-2;
+    border-width: 0.1rem;
+  }
+
+  option:checked {
+    @apply bg-acik;
   }
 </style>

@@ -11,11 +11,11 @@ import Layout from "@src/layouts/Layout.astro"
   <p class="mx-auto text-center">
     Aşağıdan dönüştürmek istediğiniz uzunluk birimini ve hedef uzunluk birimini seçiniz.
   </p>
-  <div class="flex gap-2 justify-center items-center mx-auto">
+  <div class="flex gap-3 justify-center items-center mx-auto">
     <label for="deger" class="">Kaynak değeri girin :</label>
-    <input type="number" name="deger" id="deger" class="bg-gray-400" />
+    <input type="number" name="deger" id="deger" class="" />
   </div>
-  <div class="flex flex-col lg:flex-row mx-auto">
+  <div class="flex flex-col space-y-4 lg:space-y-0 lg:flex-row mx-auto">
     <div class="flex mx-auto">
       <label for="kaynak">Kaynak birim :</label>
       <select name="kaynak" id="kaynak">
@@ -62,8 +62,10 @@ import Layout from "@src/layouts/Layout.astro"
     <button id="temizle-button" class="acik-btn">Temizle</button>
   </div>
   <div class="flex bg-koyu text-gray-200 px-2 py-2 mt-6 rounded-md min-w-[20rem] lg:w-2/3 mx-auto">
-    <span>Sonuç :</span>
-    <span id="sonuc"></span>
+    <p>
+      <span>Sonuç :</span>
+      <span id="sonuc" class="ml-1"></span>
+    </p>
   </div>
 </Layout>
 
@@ -91,7 +93,12 @@ import Layout from "@src/layouts/Layout.astro"
     deger.value = null
     sonuc.innerText = ""
   })
-  deger.addEventListener("input", () => {
+
+  deger.addEventListener("input", dinamikHesapla)
+  kaynak.addEventListener("input", dinamikHesapla)
+  hedef.addEventListener("input", dinamikHesapla)
+
+  function dinamikHesapla() {
     if (deger) {
       try {
         uygula()
@@ -99,5 +106,5 @@ import Layout from "@src/layouts/Layout.astro"
         return
       }
     }
-  })
+  }
 </script>
