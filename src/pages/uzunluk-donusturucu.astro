@@ -8,7 +8,7 @@ import Layout from "@src/layouts/Layout.astro"
   canonicalUrlExtension="uzunluk-donusturucu"
 >
   <h1>Uzunluk dönüştürücü 📏</h1>
-  <p class="mx-auto text-center">
+  <p class="mx-auto text-center !font-semibold">
     Aşağıdan dönüştürmek istediğiniz uzunluk birimini ve hedef uzunluk birimini seçiniz.
   </p>
   <div class="flex gap-3 justify-center items-center mx-auto">
@@ -67,6 +67,55 @@ import Layout from "@src/layouts/Layout.astro"
       <span id="sonuc" class="ml-1"></span>
     </p>
   </div>
+  <article class="px-4 mt-6 mb-2 lg:px-28" itemscope itemtype="https://schema.org/Article">
+    <h2 itemprop="headline" class="!text-3xl">En çok kullanılan uzunluk birimleri</h2>
+    <p itemprop="description">
+      Uzunluk, çeşitli alanlarda geniş bir uygulama yelpazesi bulan temel bir fiziksel niceliktir. Bu makalede, en çok
+      kullanılan uzunluk birimlerini ele alacağız ve bu birimlerin özelliklerine odaklanacağız.
+    </p>
+
+    <h2>Metre : Uluslararası Birimler Sistemi'nin Temel Uzunluk Birimi</h2>
+    <p>
+      Metre, uzunluğu ölçmek için temel bir birim olarak kabul edilen Uluslararası Birimler Sistemi'nde (SI) yer alır.
+      1983 yılında, hızın ışık hızına göre tanımlandığı bir standart ile belirlenen metre, bilimsel ve endüstriyel
+      alanlarda yaygın olarak kullanılmaktadır.
+    </p>
+
+    <h2>Kilometre : Uzun Mesafeleri Ölçmek İçin Pratik Bir Birim</h2>
+    <p>
+      Kilometre, uzun mesafeleri ölçmek amacıyla sıklıkla tercih edilen bir uzunluk birimidir. 1 kilometre, <strong
+        >1000</strong
+      > metreye eşittir ve seyahat mesafeleri, coğrafi uzaklıklar ve harita ölçekleri gibi büyük ölçekli konularda
+      kullanılır.
+    </p>
+
+    <h2>Mil : Denizcilik ve Havacılıkta Kullanılan Uzunluk Birimi</h2>
+    <p>
+      Mil, denizcilik ve havacılıkta yaygın olarak kullanılan bir uzunluk birimidir. Uluslararası deniz mili (nautical
+      mile) ve kara mil (statute mile) olmak üzere iki farklı türde gelir. Uluslararası deniz mili, tam olarak 1852
+      metreye eşittir.
+    </p>
+
+    <h2>İnç : Amerika'da Sıkça Kullanılan Uzunluk Birimi</h2>
+    <p>
+      İnç, Amerika Birleşik Devletleri'nde yaygın olarak kullanılan bir uzunluk birimidir. Özellikle küçük ölçekli
+      nesnelerin boyutlarını ifade etmek için tercih edilir. 1 inç, kesin olarak 2.54 santimetreye eşittir.
+    </p>
+
+    <h2>Feet : İnşaat ve Mühendislikte Sıkça Kullanılan Uzunluk Birimi</h2>
+    <p>
+      Feet , birçok kültürde ve endüstride sıkça tercih edilen bir uzunluk birimidir. İnşaat ve mühendislik alanlarında
+      özellikle yaygındır. 1 Feet, yaklaşık olarak 0.3048 metreye eşittir.
+    </p>
+
+    <h2>Santimetre ve Milimetre : Hassas Ölçümler İçin Küçük Uzunluk Birimleri</h2>
+    <p>
+      Santimetre ve milimetre, hassas ölçümler için kullanılan küçük uzunluk birimleridir. 1 santimetre, 0.01 metreye
+      eşitken, 1 milimetre 0.001 metreye eşittir
+    </p>
+
+    <meta itemprop="datePublished" content="2023-11-19T12:00:00" />
+  </article>
 </Layout>
 
 <script>
@@ -108,3 +157,12 @@ import Layout from "@src/layouts/Layout.astro"
     }
   }
 </script>
+
+<style>
+  h2 {
+    @apply font-medium text-2xl text-center mt-12 mb-2 border-b;
+  }
+  p {
+    @apply font-normal;
+  }
+</style>
