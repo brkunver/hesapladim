@@ -1,17 +1,48 @@
 ---
-
+import { Image } from "astro:assets"
+import menuImage from "@src/assets/menu-button.png"
 ---
 
 <header class="flex items-stretch mx-auto bg-acik lg:mb-14 h-10 lg:items-center shadow-md">
   <div class="flex px-4 h-full justify-between transition-colors w-full">
     <a href="/" class="font-sekilli font-bold text-lg py-2 px-2 hover:bg-acik2 transition-colors">Ana Sayfa</a>
     <div class="hidden lg:flex">
-      <a href="/kullanim-kosullari" class="font-sekilli font-semibold text-lg py-2 px-2 transition-colors hover:bg-acik2"
-        >Kullanım koşulları</a
+      <a
+        href="/kullanim-kosullari"
+        class="font-sekilli font-semibold text-lg py-2 px-2 transition-colors hover:bg-acik2">Kullanım koşulları</a
       >
-      <a href="/gizlilik-politikasi" class="font-sekilli font-semibold text-lg py-2 px-2 transition-colors hover:bg-acik2"
-        >Gizlilik politikası</a
+      <a
+        href="/gizlilik-politikasi"
+        class="font-sekilli font-semibold text-lg py-2 px-2 transition-colors hover:bg-acik2">Gizlilik politikası</a
       >
     </div>
+    <button id="menu-button" class="lg:hidden">
+      <Image src={menuImage} alt="Menü" class="h-8 w-8" />
+    </button>
   </div>
 </header>
+<div id="mobile-menu" class="hidden absolute flex-col bg-white text-black inset-0 mt-10 p-2 text-center space-y-6">
+  <a href="/kullanim-kosullari" class="font-sekilli font-semibold text-2xl py-2 px-2">Kullanım koşulları</a>
+  <a href="/gizlilik-politikasi" class="font-sekilli font-semibold text-2xl py-2 px-2">Gizlilik politikası</a>
+</div>
+
+<script>
+  const menu = document.getElementById("mobile-menu")
+  const menuButton = document.getElementById("menu-button") as HTMLButtonElement
+
+  let showMenu = false
+
+  menuButton.addEventListener("click", handleMenu)
+
+  function handleMenu() {
+    if (showMenu) {
+      showMenu = false
+      menu.classList.remove("flex")
+      menu.classList.add("hidden")
+    } else {
+      showMenu = true
+      menu.classList.remove("hidden")
+      menu.classList.add("flex")
+    }
+  }
+</script>

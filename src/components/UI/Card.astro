@@ -1,0 +1,11 @@
+---
+interface Props {
+  link : string
+}
+
+let {link} = Astro.props
+---
+
+<a href={link} class="bg-[#eeeeee] rounded shadow-md flex flex-col gap-2 p-4">
+  <slot />
+</a>

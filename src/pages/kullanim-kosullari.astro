@@ -2,4 +2,89 @@
 import Layout from "@src/layouts/Layout.astro"
 ---
 
-<Layout description="Kullanım koşulları" title="Kullanım koşulları" canonicalUrlExtension="kullanim-kosullari" />
+<Layout description="Kullanım Koşulları" title="Kullanım Koşulları" canonicalUrlExtension="kullanim-kosullari">
+  <div class="px-4 pb-6 flex flex-col space-y-4">
+    <h1>Kullanım Koşulları</h1>
+
+    <h2>Kabul edilen koşullar</h2>
+    <ul>
+      <li>Kolaycahesapla.com.tr'yi kullanarak, aşağıdaki kullanım koşullarını kabul etmiş sayılırsınız.</li>
+      <li>Bu koşullar, sitedeki tüm kullanıcılar için bağlayıcıdır.</li>
+    </ul>
+
+    <h2>Servis tanımı</h2>
+    <ul>
+      <li>
+        Kolaycahesapla.com.tr, çeşitli matematiksel ve fiziksel hesaplamaları gerçekleştirebileceğiniz bir araçlar sunan
+        bir web sitesidir.
+      </li>
+    </ul>
+
+    <h2>Sorumluluk reddi</h2>
+    <ul>
+      <li>Kolaycahesapla.com.tr'nin sağladığı bilgiler genel kullanım içindir ve garantilerle desteklenmez.</li>
+      <li>
+        Kullanıcılar, siteyi kendi sorumlulukları altında kullanır ve herhangi bir hata, kesinti veya veri kaybından
+        dolayı sorumluluk kabul etmezler.
+      </li>
+    </ul>
+
+    <h2>Gizlilik politikası</h2>
+    <ul>
+      <li>
+        Kolaycahesapla.com.tr, <a class="font-medium text-blue-900" target="_blank" href="/gizlilik-politikasi"
+          >Gizlilik politikası</a
+        > çerçevesinde kullanıcı bilgilerini koruma taahhüdünde bulunur.
+      </li>
+      <li>
+        Google Analytics kullanılarak elde edilen istatistikler, sitedeki performansı değerlendirmek ve geliştirmek
+        amacıyla kullanılır.
+      </li>
+    </ul>
+
+    <h2>Üçüncü taraf bağlantıları</h2>
+    <ul>
+      <li>Kolaycahesapla.com.tr, üçüncü taraf web sitelerine olan bağlantılardan sorumlu değildir.</li>
+      <li>
+        Bu bağlantıları kullanırken, kullanıcılar kendi risklerini anlamalı ve bu sitelerin kendi kullanım koşullarını
+        kontrol etmelidir.
+      </li>
+    </ul>
+
+    <h2>Değişiklikler ve güncellemeler</h2>
+    <ul>
+      <li>
+        Kolaycahesapla.com.tr, kullanım koşullarını dilediği zaman değiştirme veya güncelleme hakkını saklı tutar.
+      </li>
+      <li>
+        Değişiklikler sitede yayınlandığı anda yürürlüğe girecektir. Kullanıcılar düzenli olarak bu sayfayı kontrol
+        etmelidir.
+      </li>
+    </ul>
+
+    <h2>İletişim</h2>
+    <ul>
+      <li>
+        Kullanıcılar, Kolaycahesapla.com.tr ile iletişim kurmak için <a href="mailto:kolaycahesapla@gmail.com"
+          >kolaycahesapla@gmail.com</a
+        > adresini kullanabilirler.
+      </li>
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  h2 {
+    @apply font-medium text-2xl;
+  }
+  h3 {
+    @apply font-medium text-lg;
+  }
+  p {
+    @apply font-normal;
+  }
+
+  ul {
+    list-style-type: circle;
+  }
+</style>

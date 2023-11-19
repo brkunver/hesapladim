@@ -1,9 +1,31 @@
 ---
 import Layout from "@src/layouts/Layout.astro"
+import Card from "@src/components/UI/Card.astro"
+
+const hesaplamalar = [
+  {
+    baslik: "Uzunluk dönüştür 📏",
+    icerik: "metre-km-inç gibi uzunluk birimleri arasında dönüşüm aracı",
+    link: "/uzunluk-donusturucu",
+  },
+]
 ---
 
 <Layout
   description="Tüm hesaplamalara buradan ulaşabilirsiniz"
   title="Tüm hesaplamalar"
   canonicalUrlExtension="tum-hesaplamalar"
-/>
+>
+  <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 text-center py-4 px-2">
+    {
+      hesaplamalar.map((hesaplama) => {
+        return (
+          <Card link={hesaplama.link}>
+            <h2 class="font-medium text-2xl">{hesaplama.baslik}</h2>
+            <p>{hesaplama.icerik}</p>
+          </Card>
+        )
+      })
+    }
+  </div>
+</Layout>

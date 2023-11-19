@@ -1,9 +1,16 @@
-<footer class="flex flex-col justify-center items-center min-w-full mt-8 mb-0 mx-0">
-  <div class="border-t border-gray-600 w-2/3"></div>
-  <ul class="flex flex-col lg:flex-row">
-    <li><a href="/">Ana Sayfa</a></li>
-    <li><a href="/kullanim-kosullari">Kullanım Koşulları</a></li>
-    <li><a href="/gizlilik-politikasi">Gizlilik Politikası</a></li>
-    <li><a href="/tum-hesaplamalar">Tüm Hesaplamalar</a></li>
-  </ul>
+<footer class="flex flex-col justify-center items-center min-w-full mt-8 mb-0 pb-4 mx-0">
+  <div class="border-t border-gray-600 w-2/3 mb-4"></div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-4 text-center gap-2">
+    <a href="/">Ana Sayfa</a>
+    <a href="/kullanim-kosullari">Kullanım Koşulları</a>
+    <a href="/gizlilik-politikasi">Gizlilik Politikası</a>
+    <a href="/tum-hesaplamalar">Tüm Hesaplamalar</a>
+  </div>
 </footer>
+
+<style>
+  a {
+    @apply font-bold text-lg hover:text-blue-800;
+  }
+</style>
