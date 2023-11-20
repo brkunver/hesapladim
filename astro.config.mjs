@@ -4,11 +4,11 @@ import sitemap from "@astrojs/sitemap"
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://kolaycahesapla.com.tr",
+  site: "https://hesapladim.com.tr",
   integrations: [
     tailwind(),
     sitemap({
-      filter: (page) => page !== "https://kolaycahesapla.com.tr/404",
+      filter: (page) => page !== "https://hesapladim.com.tr/404",
     }),
   ],
 })
